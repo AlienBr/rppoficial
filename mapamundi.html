@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interativo</title>
+    <style>
+        .map-container {
+            position: relative;
+            width: 1400px; 
+            height: 660px;
+        }
+        
+        .map {
+            width: 1400px; 
+            height: 660px;
+        }
+        
+        .map-point {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgb(133, 67, 20);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+        
+        #info-box {
+            width: 450px;
+            padding: 15px;
+            border: 1px solid black;
+            background: #f8f8f8;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            display: none;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+    </style>
+</head>
+<body>
+    <center>
+    <div class="map-container">
+        <img src="mapa.jpeg" alt="Mapa Interativo" class="map">
+        
+        <button class="map-point" style="left: 297px; top: 415px;" data-info="Peru"></button>
+        <button class="map-point" style="left: 639px; top: 212px;" data-info="Barcelona"></button>
+        <button class="map-point" style="left: 639px; top: 186px;" data-info="Paris"></button>
+        <button class="map-point" style="left: 647px; top: 175px;" data-info="Paladis"></button>
+        <button class="map-point" style="left: 630px; top: 166px;" data-info="Inglaterra"></button>
+        <button class="map-point" style="left: 707px; top: 186px;" data-info="Romênia"></button>
+        <button class="map-point" style="left: 761px; top: 257px;" data-info="Egito"></button>
+        <button class="map-point" style="left: 949px; top: 294px;" data-info="Índia"></button>
+        <button class="map-point" style="left: 730px; top: 222px;" data-info="Grécia"></button>
+        <button class="map-point" style="left: 674px; top: 168px;" data-info="Alemanha"></button>
+        <button class="map-point" style="left: 676px; top: 200px;" data-info="Itália"></button>
+    </div>
+    
+    <div id="info-box"></div>
+    </center>
+    <script>
+        const locations = {
+            "Peru": "O Peru é uma terra de mistérios ancestrais, onde a vastidão da Amazônia esconde segredos há milênios esquecidos. Suas florestas densas são um labirinto vivo, repleto de criaturas selvagens, tribos isoladas e ruínas soterradas pela selva implacável. Entre seus rios e montanhas, repousa o lendário Templo do Sol, uma relíquia da civilização inca, onde o tempo parece se dobrar sobre si mesmo. Foi lá, entre enigmas gravados em pedra e armadilhas mortais, que os personagens enfrentaram desafios além da compreensão humana para alcançar a Pedra do Tempo. Guardada por forças que desafiam a lógica e protegida por guerreiros que juraram impedir que seu poder caísse em mãos erradas, a pedra representou um dos maiores desafios da jornada. O Peru, com seus vestígios de grandeza e mistério, permanece como um território onde o passado e o presente se entrelaçam, testando aqueles que ousam desvendar seus segredos.",
+            "Barcelona": "Barcelona, uma das joias da Europa, é um importante centro comercial e cultural, onde tradição e progresso se encontram. Suas ruas são movimentadas por mercadores, estudiosos e navegantes, enquanto suas construções refletem a fusão entre a arquitetura clássica e os novos avanços industriais. A cidade abriga segredos ocultos e mistérios antigos, sendo um ponto estratégico para aqueles que buscam conhecimento ou poder. Entre seus habitantes, destaca-se Aurélia, uma aliada do grupo, cuja influência e recursos podem ser essenciais para a jornada que está por vir.",
+            "Paris": "Paris, a grandiosa capital, brilha como um farol de arte, cultura e inovação. Suas ruas são adornadas por monumentos magníficos, enquanto intelectuais e inventores moldam o futuro nas sombras dos cafés e salões aristocráticos. No entanto, sob sua beleza imponente, Paris guarda inúmeros segredos—códigos ocultos, sociedades discretas e vestígios de conhecimentos ancestrais que podem mudar o destino daqueles que ousam desvendar seus mistérios.",
+            "Paladis": "Situado na extremidade nordeste da França, entre a Inglaterra e a Alemanha, Paladis atravessa um período de reestruturação política. O avanço da Revolução Industrial e da magia aplicada transformou suas cidades, onde fábricas e oficinas crescem ao lado de antigos distritos aristocráticos. O reino tenta equilibrar tradição e modernidade, enquanto a nobreza resiste às reformas que ameaçam seu poder. Estratégico e rico em recursos, Paladis é um ponto chave no cenário europeu, onde política, comércio e conhecimento se entrelaçam em um futuro incerto.",
+            "Inglaterra": "A Inglaterra no RPG é uma das nações mais industrializadas, liderando avanços em engenharia e comércio global. Suas cidades são centros vibrantes de inovação, onde fábricas e academias impulsionam a fusão entre tecnologia e magia. Sob o governo da rainha Elizabeth Clifford Weber, o país mantém sua influência política e militar, mas precisa lidar com desafios externos e internos enquanto o mundo se transforma rapidamente.",
+            "Romênia": "A Romênia é uma terra de montanhas sombrias, vastas florestas e fortalezas ancestrais, onde o folclore e a realidade se misturam. Seu povo é resiliente, e sua cultura, profundamente enraizada nas tradições místicas. No entanto, a nação está sob o domínio do temido Drácula, um governante implacável cujo poder e influência fazem da Romênia uma ameaça constante à Inglaterra e seus aliados. Com uma liderança rígida e um exército leal, ele trava uma guerra nas sombras contra aqueles que ousam desafiar sua soberania. Entre os mistérios que cercam essa terra amaldiçoada, os personagens se aventuram pelos domínios de Drácula em busca de fragmentos de um caminho perdido, pistas ancestrais que podem levá-los até a Pedra da Morte — embora ainda não saibam exatamente onde ela está ou o verdadeiro preço a se pagar por esse conhecimento.",
+            "Egito": "O Egito, terra de faraós e segredos enterrados sob as areias do tempo, abriga as monumentais Três Pirâmides, onde histórias e maldições se entrelaçam. Foi em uma delas que os personagens buscaram a Pedra do Poder, enfrentando armadilhas antigas, enigmas esquecidos e forças sobrenaturais que protegiam o artefato. O deserto revelou-se um teste implacável, onde a linha entre história e magia se dissolveu, desafiando a coragem e a astúcia dos viajantes em uma luta contra o desconhecido.",
+            "Índia": "A Índia, uma terra de espiritualidade profunda e templos grandiosos, foi o cenário de um dos momentos mais dolorosos da jornada. No sagrado Templo de Lótus, os personagens descobriram a passagem secreta para Vormir, o reino oculto entre a vida e a morte. Lá, diante de um destino implacável, foram forçados a pagar o preço definitivo para obter a Pedra da Alma. Quando voltaram, carregavam consigo o poder do artefato, mas também um vazio irreparável — um de seus companheiros ficou para trás, perdido para sempre nas sombras do sacrifício.",
+            "Alemanha": "A Alemanha é uma terra rica e próspera, onde o avanço industrial caminha lado a lado com antigos segredos ocultos. Suas cidades florescem com comércio e tecnologia, enquanto suas florestas densas e castelos ancestrais escondem mistérios há muito esquecidos. Entre cientistas visionários e sociedades secretas, a nação se equilibra entre a razão e o sobrenatural, tornando-se um território tão fascinante quanto perigoso para aqueles que ousam explorar seus enigmas.",
+            "Itália": "A Itália é uma terra de esplendor e contrastes, onde a realeza e o crime caminham lado a lado. Com laços estreitos com a família real inglesa, selados por casamentos entre nobres, o país se tornou um refúgio para monarcas e aristocratas. Suas cidades exalam luxo e cultura, enquanto a Riviera Italiana, lar de foras da lei e mafiosos, oferece tranquilidade e discrição para aqueles que preferem manter suas atividades ilícitas em territórios estrangeiros. Entre palácios deslumbrantes e acordos silenciosos, a Itália é um centro de poder, influência e segredos bem guardados.",
+            "Grécia": "A Grécia é uma nação vibrante e estrategicamente relevante, combinando sua herança histórica com a modernização impulsionada pela fusão entre magia e tecnologia. Suas cidades florescem com comércio, filosofia e inovação, enquanto seus estudiosos e arcanistas buscam expandir os limites do conhecimento. No entanto, entre seus mistérios mais profundos, encontra-se a lendária Caverna de Platão, um local oculto onde a Pedra da Mente repousava. Essa joia de poder imensurável desafiava a percepção da realidade, levando os personagens a enfrentar ilusões complexas e dilemas filosóficos enquanto tentavam reivindicar seu poder."
+        };
+
+        document.querySelectorAll(".map-point").forEach(button => {
+            button.addEventListener("click", function() {
+                const infoBox = document.getElementById("info-box");
+                const location = this.getAttribute("data-info");
+                infoBox.textContent = locations[location];
+                infoBox.style.display = "block";
+            });
+        });
+    
+    </script>
+    <br><br>
+    <a href="mapamundi.html"><img src="recarregar.png" width="50" height="50"></a>
+</body>
+</html>

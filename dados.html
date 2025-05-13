@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <style>
+        body {
+            font-family: Sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #dado {
+            font-size: 50px;
+            margin: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body bgcolor="white">
+    <h1>Rodar Dados</h1>
+    <div id="dado">🎲</div>
+    <button onclick="rolarDado(6)">Rodar D6</button>
+    <button onclick="rolarDado(12)">Rodar D12</button>
+    <button onclick="rolarDado(20)">Rodar D20</button>
+    <button onclick="rolarDado(100)">Rodar D100</button>
+    
+    <script>
+        function rolarDado(lados) {
+            let numero = Math.floor(Math.random() * lados) + 1;
+            document.getElementById("dado").textContent = numero;
+        }
+    </script>
+   <br>
+    <embed src = "banguela.gif">
+</body>
+</html>

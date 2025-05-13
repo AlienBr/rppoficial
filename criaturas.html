@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG - Descrição</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .bloco {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .bloco img {
+            width: 250px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .texto {
+            font-size: 18px;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        /* Alterna as posições */
+        .bloco:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .bloco:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .titulo{
+            text-align: center;
+            font-family: 'Arial';
+            font-size: 40px;
+        }
+        #btnTopo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 20px;
+      padding: 10px 15px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s ease;
+    }
+    </style>
+</head>
+<body>
+<h1 class="titulo">
+    Criaturas catalogadas
+</h1>
+    <div class="container">
+        <div class="bloco">
+            <img src="sereia.jpg" alt="Imagem 1">
+            <p class="texto">As sereias, criaturas enigmáticas dos oceanos, habitam as profundezas dos mares, onde sua beleza hipnotizante esconde uma natureza tão fascinante quanto perigosa. Dizem que suas vozes encantadoras são capazes de atrair até os navegadores mais experientes para as águas traiçoeiras, onde poucos sobrevivem para contar a história. Algumas lendas falam de sereias sábias, guardiãs de segredos antigos e portadoras de conhecimentos ocultos sobre o mundo submerso, enquanto outras descrevem seres cruéis que se deleitam com o desespero daqueles que sucumbem ao seu chamado. Seja como aliadas ou inimigas, as sereias permanecem um mistério envolto nas brumas do oceano e nos sussurros do vento marítimo. Existem aqueles que afirmam ter negociado com elas, trocando tesouros ou segredos em troca de favores, enquanto outros acreditam que sua verdadeira lealdade pertence apenas ao mar.</p>
+        </div>
+
+        <div class="bloco">
+            <img src="dragao.jpg" alt="Imagem 3">
+            <p class="texto">O Fúria da Noite é uma criatura envolta em mistério e temor, mais do que uma simples besta alada — uma entidade que se funde à própria escuridão, tornando-se invisível sob o véu noturno. Seu voo é silencioso, ágil e letal, fazendo qualquer tentativa de fuga inútil para aqueles que cruzam seu caminho. Com olhos brilhantes que perfuram as trevas e um rugido capaz de fazer montanhas tremerem, ele é uma presença assombrosa no mundo. Alguns acreditam que é uma força da natureza, um predador supremo que caça nas sombras, enquanto outros sussurram que é um ser amaldiçoado, condenado a vagar entre os vivos e os mortos. Seja mito ou realidade, todos concordam em uma coisa: quando o Fúria da Noite é avistado, poucos vivem para contar a história. Seu nome é sussurrado em lendas, temido por guerreiros e estudado por arcanistas, mas ninguém jamais ousou caçá-lo e retornou para relatar o que encontrou.</p>
+        </div>
+
+
+        <div class="bloco">
+            <img src="vampiro.jpg" alt="Imagem 3">
+            <p class="texto">Os vampiros, outrora temidos por sua imortalidade absoluta, agora carregam o fardo da mortalidade, mas sem perder sua essência predatória. Ainda dotados de força, velocidade e sentidos aguçados além da compreensão humana, eles caminham na linha tênue entre predadores e sobreviventes. Sem a eternidade a seu favor, tornaram-se ainda mais estratégicos, seletivos em suas caçadas e implacáveis contra aqueles que ousam desafiá-los. O sangue ainda é sua fonte de poder, mas agora também é sua ruína — sem ele, enfraquecem, envelhecem e, eventualmente, perecem. Para alguns, essa mudança os tornou mais perigosos, pois a necessidade de permanecer vivos os levou a evoluir, adaptando-se à era das máquinas e da magia. Movendo-se entre sombras e sociedades secretas, os vampiros persistem, não mais como divindades eternas da noite, mas como predadores mortais que lutam para preservar sua linhagem.</p>
+        </div>
+
+        <div class="bloco">
+            <img src="kraken.jpg" alt="Imagem 3">
+            <p class="texto">O Kraken é uma lenda viva dos mares, um colosso abissal que habita as profundezas insondáveis dos oceanos. Suas gigantescas tentáculos emergem das trevas abaixo, capazes de despedaçar embarcações como se fossem cascas vazias. Dizem que ele não é apenas uma fera irracional, mas uma criatura ancestral, conectada às correntes mágicas do mundo e guardião de segredos submersos esquecidos pelo tempo. Marinheiros sussurram histórias sobre olhos tão profundos quanto o próprio oceano e uma inteligência fria que espreita aqueles que ousam desafiar seu domínio. Nos dias de tormenta, quando os ventos rugem e as águas se revoltam, alguns dizem que não é a natureza em fúria, mas o despertar do Kraken, pronto para arrastar os insensatos para as entranhas do mar. Outros acreditam que ele protege algo muito mais valioso do que qualquer tesouro afundado, um poder que nunca deveria ser descoberto.</p>
+        </div>
+
+        <div class="bloco">
+            <img src="cutulo.jpg" alt="Imagem 3">
+            <p class="texto">Cthulhu é uma entidade primordial, um horror cósmico que habita além da compreensão mortal. Seu corpo colossal jaz adormecido nas ruínas submersas de R'lyeh, onde sua presença distorce a própria realidade. Com tentáculos sinuosos e uma aura que corrompe a sanidade, Cthulhu não é apenas uma criatura, mas um pesadelo vivo, um ser cuja mera visão pode arruinar a mente dos mais resistentes. Diz-se que ele não está morto, apenas sonha, e que seus sussurros ecoam nos pesadelos dos mais sensíveis, chamando cultistas e lunáticos para sua causa. Há quem acredite que sua ascensão é inevitável, e quando isso acontecer, o mundo mergulhará no caos absoluto, onde a lógica se desfaz e a insanidade se torna a única verdade. Alguns estudiosos do oculto tentam decifrar seus mistérios, mas poucos sobrevivem com a razão intacta. Suas manifestações são raras, mas quando ocorrem, deixam para trás cidades devastadas e mentes consumidas pela loucura.</p>
+        </div>
+
+    </div>
+    <button id="btnTopo" onclick="voltarParaTopo()">▲</button>
+
+  <!-- SCRIPT AQUI NO FINAL -->
+  <script>
+    // Faz o botão aparecer quando rola pra baixo
+    window.onscroll = function() {
+      var botao = document.getElementById("btnTopo");
+      if (window.scrollY > 300) {
+        botao.style.display = "block";
+      } else {
+        botao.style.display = "none";
+      }
+    }
+
+    // Voltar suavemente pro topo
+    function voltarParaTopo() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

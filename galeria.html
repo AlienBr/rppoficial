@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria</title>
+   <style>
+     #btnTopo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 20px;
+      padding: 10px 15px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+      transition: 0.3s ease;
+    }
+    img {
+  border-radius: 8px;
+}
+   </style>
+</head>
+<body>
+<center>
+<p>
+  <img src="londres2.jpg" width="350" height="500">
+  <img src="londres3.jpg" width="350" height="500">
+  <img src="paris1.jpg" width="350" height="500">
+  <img src="paris2.jpg" width="350" height="500">
+  <img src="barcelona1.jpg" width="350" height="500">
+  <img src="barcelona2.jpg" width="350" height="500">
+  <img src="italia.jpg" width="350" height="500">
+  <img src="italia1.jpg" width="350" height="500">
+  <img src="alemanha1.jpg" width="350" height="500">
+  <img src="alemanha2.jpg" width="350" height="500">
+  <img src="romenia1.jpg" width="350" height="500">
+  <img src="grecia1.jpg" width="350" height="500">
+  <img src="grecia2.jpg" width="350" height="500">
+  <img src="egito1.jpg" width="350" height="500">
+  <img src="egito2.jpg" width="350" height="500">
+  <img src="peru1.jpg" width="350" height="500">
+  <img src="peru2.jpg" width="350" height="500">
+  <img src="india1.jpg" width="350" height="500">
+  <img src="g2.jpg" width="350" height="500">
+  <img src="g1.jpg" width="350" height="500">
+  <img src="g3.jpg" width="350" height="500">
+  <img src="g4.jpg" width="350" height="500">
+  <img src="g6.jpg" width="350" height="500">
+  <img src="g7.jpg" width="350" height="500">
+  <img src="g8.jpg" width="350" height="500">
+  <img src="g9.jpg" width="350" height="500">
+  <img src="g10.jpg" width="350" height="500">
+  <img src="g11.jpg" width="350" height="500">
+</p>
+</center>
+
+
+
+    
+    <!-- SCRIPT AQUI NO FINAL -->
+  <script>
+    // Faz o botão aparecer quando rola pra baixo
+    window.onscroll = function() {
+      var botao = document.getElementById("btnTopo");
+      if (window.scrollY > 300) {
+        botao.style.display = "block";
+      } else {
+        botao.style.display = "none";
+      }
+    }
+
+    // Voltar suavemente pro topo
+    function voltarParaTopo() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG</title>
+    <style>
+    body {
+  margin: 0;
+  background-color: #f2f2f2;
+}
+
+.menu {
+  background-color: #222;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.menu button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 16px;
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  color: #aaa;
+}
+
+iframe {
+  width: 100%;
+  height: 90vh;
+  border: none;
+  margin-top: 50px;
+}
+
+    </style>
+
+<script>
+    function carregarPagina(pagina) {
+      document.getElementById('janela').src = pagina;
+    }
+  </script>
+  
+</head>
+<body>
+    <div class="menu">
+        <button onclick="carregarPagina('personagens.html')">Personagens</button>
+        <button onclick="carregarPagina('pedras.html')">Pedras</button>
+        <button onclick="carregarPagina('historia.html')">História</button>
+        <button onclick="carregarPagina('personagens.html')">Fichas</button>
+        <button onclick="carregarPagina('dados.html')">Dados</button>
+        <button onclick="carregarPagina('dados.html')">Minigames</button>
+        <button onclick="carregarPagina('inicio.html')">Voltar</button>
+      </div>
+      
+      <iframe id="janela" src="inicio.html"></iframe>
+      
+</body>
+</html>

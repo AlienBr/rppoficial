@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider e Lista de Personagens</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .content {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px; /* Aumentando o espaçamento entre os sliders */
+            width: 100%;
+            padding: 0 20px; /* 20px de margem em ambos os lados */
+        }
+
+        .slider-container {
+            width: 308px;
+            height: 429px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider img {
+            width: 308px;
+            height: 429px;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev { left: 5px; }
+        .next { right: 5px; }
+
+        .character-list {
+            flex-grow: 1;
+            width: 308px; /* Garantindo que o tamanho seja o mesmo dos sliders */
+            height: 429px; /* Garantindo que o tamanho seja o mesmo dos sliders */
+            border: 2px solid black;
+            padding: 15px;
+            background: #f9f9f9;
+        }
+
+        .character-list h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .character {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+        .character:last-child {
+            border-bottom: none;
+        }
+
+        .text-content {
+            margin-top: 20px;
+            width: 100%;
+            padding: 0 20px; /* 20px de margem nas laterais */
+            text-align: justify;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <!-- Slider 1 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="nat2.jpg">
+                <img src="nat6.jpg">
+                <img src="nat5.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(0)">&#10094;</button>
+            <button class="next" onclick="nextSlide(0)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Natasha Clifford Weber Miller</h2>
+            <div class="character">
+                <strong>Nat</strong>
+                <p>Idade: 24 anos</p>
+                <p>Nacionalidade: Inglesa / Italiana</p>
+                <p>Mãe: Elizabeth Clifford Weber</p>
+                <p>Pai: William Lucchesi Weber</p>
+                <p>Irmã: Chloe Clifford Weber</p>
+                <p>Estado civil: Casada</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Manipulação de energia psíquica</p>
+                <p>Influência mental</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>CEO da Weber</p>
+                <p>Regente Honorária do Reino</p>
+            </div>
+        </div>
+    </div> 
+
+    <div class="text-content">
+        <p>
+            Origem e História de Natasha Clifford Weber Miller:
+            Nascida na Inglaterra, Natasha é a herdeira do trono inglês e a filha mais velha da Rainha Elizabeth Clifford Weber. Desde pequena, foi criada para carregar o peso da coroa e comandar o império econômico da Weber, uma das empresas mais influentes da Europa, responsável por liderar o avanço tecnológico e industrial durante a Revolução a Vapor.
+            Apesar de ser criada em meio ao luxo e à pressão da realeza, Natasha sempre teve uma alma discreta e reservada, preferindo agir nas sombras e observar o mundo ao invés de ser o centro das atenções. Seu refúgio na infância era uma casinha na árvore escondida nos jardins do palácio, construída por seu pai e seu tio. Lá, ela criava memórias com seu melhor amigo, Joel Miller, que mais tarde se tornaria seu marido.
+            Quando atingiu a idade adulta, Natasha foi enviada para Paladis, uma potência francesa em reestruturação política, para expandir os negócios Weber e fortalecer a influência da família em toda a Europa. Foi nesse período que Natasha entrou em contato com a Pedra do Poder, despertando suas habilidades psíquicas, que até então estavam adormecidas.
+            Após consolidar o poder da Weber em Paladis, Natasha retornou à Inglaterra ao lado de Joel, agora seu marido, e juntos passaram a viver em uma casa discreta, afastada dos olhares da corte, enquanto ela aguarda o momento de assumir o trono.
+            Apesar de ainda estar à sombra de sua mãe, Natasha já é vista como uma das figuras mais poderosas e influentes do continente, tanto no cenário político quanto no econômico — e carrega um poder psíquico que ninguém além de Joel conhece.
+        </p>
+    </div>
+    <br><br>
+
+    <div class="content">
+        <!-- Slider 2 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="joel2.jpg">
+                <img src="joel3.jpg">
+                <img src="joel1.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(1)">&#10094;</button>
+            <button class="next" onclick="nextSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Joel Weber Miller Hamilton</h2>
+            <div class="character">
+                <strong>Joel</strong>
+                <p>Idade: 26 anos</p>
+                <p>Nacionalidade: Inglesa / Alemã</p>
+                <p>Mãe: Emillie Miller</p>
+                <p>Pai: Lewis Grant Hamilton</p>
+                <p>Irmãos: Tyler Miller, Elliot Miller </p>
+                <p>Estado civil: Casado</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Não possui poderes</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Vice presidente da Weber</p>
+                <p>Conselheiro Real de Políticas Externas</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Origem e História de Joel Miller Weber;
+            Joel nasceu na Inglaterra, em uma família humilde, filho de um engenheiro que trabalhava para a Weber, o império industrial comandado pela família real inglesa.
+            Sua infância foi marcada por momentos simples, mas também por uma forte amizade com Natasha Clifford Weber, a herdeira do trono inglês. Joel sempre foi uma presença constante ao lado dela, especialmente em momentos como as brincadeiras na casinha na árvore escondida nos jardins do palácio, que se tornou um símbolo da conexão entre eles.
+            No entanto, a vida de Joel mudou drasticamente quando seus pais morreram em um acidente. Ainda jovem, ele foi forçado a assumir a responsabilidade de criar seus dois irmãos mais novos, Elliot e Tyler, que, com o tempo, se revoltaram e seguiram o caminho do crime e da traição, abandonando Joel.
+            Após a tragédia, Joel foi apadrinhado pelo pai de Natasha, que além de Rei da Inglaterra, era também o CEO da Weber na época. Sob a tutela do rei, Joel recebeu formação política, estratégica e empresarial, tornando-se uma das figuras mais promissoras do império.
+            Quando Natasha foi enviada para Paladis, uma potência em reestruturação política, para expandir o poder da Weber, Joel foi designado para acompanhá-la e protegê-la, mas não como um guarda, e sim como seu conselheiro e representante da coroa inglesa. Lá, Joel ascendeu rapidamente, tornando-se Ministro de Relações Exteriores de Paladis, uma posição de extrema influência nas negociações políticas e alianças do país.
+            Após consolidar o poder de Natasha na região, Joel renunciou ao cargo de ministro para retornar à Inglaterra ao lado de Natasha, agora sua esposa. Ele assumiu o cargo de Vice-Presidente da Weber, trabalhando ao lado de Natasha para expandir o império industrial por toda a Europa.
+            Joel carrega consigo o peso de um passado marcado por perda e traição, mas isso o tornou um homem equilibrado, sensato e extremamente leal. Ele se tornou a mente estratégica e o escudo invisível de Natasha, sempre agindo nas sombras para proteger tanto a mulher que ama quanto o legado que eles estão construindo juntos.
+        </p>
+    </div>
+    <br>
+
+    <div class="content">
+        <!-- Slider 3 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="chloe1.jpg">
+                <img src="chloe3.png">
+                <img src="chloe2.png">
+            </div>
+            <button class="prev" onclick="prevSlide(2)">&#10094;</button>
+            <button class="next" onclick="nextSlide(2)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Chloe Clifford Weber</h2>
+            <div class="character">
+                <strong>Chloe</strong>
+                <p>Idade: 10 anos</p>
+                <p>Nacionalidade: Inglesa / Italiana</p>
+                <p>Mãe: Elizabeth Clifford Weber</p>
+                <p>Pai: William Lucchesi Weber</p>
+                <p>Irmã: Natasha Clifford Weber</p>
+                <p>Estado civil: Solteira</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Manipulação de energia psíquica</p>
+                <p>Influência mental</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Estudante</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-content">
+        <p>
+            Origem e História de Chloe Clifford Weber:
+            Chloe nasceu na Inglaterra, sendo a irmã mais nova de Natasha Clifford Weber e a segunda filha da Rainha Elizabeth Clifford Weber.
+            Desde pequena, Chloe sempre foi muito próxima de Natasha, vendo a irmã mais velha como uma figura de proteção e inspiração. Com apenas 10 anos, Chloe já demonstra uma inteligência e sensibilidade acima da média, além de possuir habilidades psíquicas semelhantes às de Natasha, porém ainda em desenvolvimento.
+            Quando Natasha foi enviada para Paladis, Chloe insistiu em acompanhá-la, não apenas por sua conexão com a irmã, mas também por desejar entender o mundo ao lado de Natasha e Joel. Mesmo sendo uma criança, Chloe absorve tudo o que acontece ao redor, aprendendo sobre estratégia, política e os negócios da Weber, preparando-se, inconscientemente, para seu futuro papel.
+            Com o retorno de Natasha à Inglaterra, Chloe continua sendo sua maior apoiadora. No futuro, quando Natasha finalmente assumir o trono, Chloe herdará o comando da Weber, se tornando a futura CEO do império industrial da família.
+            Chloe admira profundamente Joel, a quem vê como um irmão mais velho, e tem em Natasha sua maior inspiração e protetora, sempre buscando estar ao lado dela em todos os momentos.
+            Por trás de sua personalidade doce e inocente, Chloe já carrega um futuro brilhante e promissor, sendo o próximo grande nome da Weber, quando o tempo certo chegar.
+        </p>
+        <br>
+    </div>
+
+    <div class="content">
+        <!-- Slider 4 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="cass1.jpg">
+                <img src="cass2jpg.jpg">
+                <img src="cass3.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(3)">&#10094;</button>
+            <button class="next" onclick="nextSlide(3)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Cassandra d'la Fountaine Lancaster Volkov</h2>
+            <div class="character">
+                <strong>Cassandra</strong>
+                <p>Idade: 311 ~ 31 anos em idade humana</p>
+                <p>Nacionalidade: Francesa </p>
+                <p>Mãe: Mediuna d'la Fountaine </p>
+                <p>Pai: Desconhecido</p>
+                <p>Irmãos: Trystan Maverine Lancaster e Alyssa Maverine Lancaster</p>
+                <p>Estado civil: Casada</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Influência Mental </p>
+                <p>Absorção de Vitalidade</p>
+                <p>Aprimoramento Físico</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Detetive Consultora</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Cassandra é um ser híbrido, portanto, consegue ser dois tipos de seres diferentes em um só; isso lhe permite a capacidade de, mesmo que seja uma sereia - a última restante , poder transitar tranquilamente entre os humanos, sem que a notem. Isso tudo é graças - ou culpa como ela gosta de dizer, a um dos humanos há alguns anos atrás, terem capturado sua mãe e a terem engravidado. Daí, nasceu Cassandra, filha de uma sereia e ao mesmo tempo, filha de um humano... 
+            Ao longo dos anos, as sereias foram caçadas, uma à uma, apontadas como maiores inimigas dos marinheiros, até não sobrar mais nenhuma. Ou melhor, sobrou: Cassandra foi a única sobrevivente de perseguições durante esses anos. Viu todos os seus amigos, e familiares serem pegos pelas redes dos humanos, serem mortos pelos humanos, serem torturados por seres humanos... Viu seu lar ser poluído pela sujeira dos humanos. Tudo culpa dos humanos. Por isso, enquanto estiver viva, jura vingança por todos os seus companheiros falecidos. Todos eles. Para isso, mesmo contrariada, precisou infiltrar-se no mundo dos humanos e começar a estudar seus comportamentos, para encontrar formas de atraí-los para seu poço, ou melhor, o local que ela gosta de chamar de reino e onde ela se vê como rainha. 
+            Então, há 8 anos anda disfarçada no meio deles, trabalhando como "detetive" dos casos da cidade. Seu nome é consideravelmente famoso pela quantidade de casos solucionados e pela eficiência de seu trabalho. Durante esse tempo, não criou relações com ninguém da cidade onde trabalha. Ela está aqui para ser profissional não para ser amiga. 
+            Poderes: Seu canto mortal, é capaz de encantar qualquer um que esteja perto o suficiente para ouvi-lo, fazendo com que a vítima perca consciência de suas ações. Capaz de controlar os mares e as marés ao seu favor, fazendo com que os marinheiros sejam atraídos para seu "lar". Consegue também criar ilusões e manipular a vítima para realizar suas vontades e por fim, sua unha, tanto na forma humana, quanto sereia, possui um veneno mortal. Caso suas unhas perfurem a pele de uma pessoa, o veneno imediatamente será transmitido para a corrente sanguínea da pessoa, diminuindo suas chances de sobrevivência.  
+            Personalidade: É uma pessoa consideravelmente fria, mas, seu trabalho exige que ela tenha o mínimo de educação com seus clientes, mesmo que não goste. Não se importa muito com as outras pessoas, sempre é indiferente em grande parte das coisas, mas muito esperta, por ter vivido por tanto tempo assim. Ama o mar, mas gostaria que ele fosse igual ao que ela se lembra quando era pequena. 
+            Fraquezas: Tem um sério problema de desidratação em sua forma humana, portanto, constantemente bebe vários litros de água ao dia. Por ser sereia, possui um ouvido altamente sensível, sendo assim, barulhos altos a incomodam muito lhe causando dor, deixando-a desorientada. Além de, por algum motivo, tornar-se fraca durante noites de lua cheia. 
+        </p>
+    </div>
+    <br>
+
+    <div class="content">
+        <!-- Slider 5 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="mago1.jpg">
+                <img src="mago2.jpg">
+                <img src="mago3.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(4)">&#10094;</button>
+            <button class="next" onclick="nextSlide(4)">&#10095;</button>
+        </div>
+       
+
+        <div class="character-list">
+            <h2>Thorn Leocadio Mephisto Volkov d'la Fountaine </h2>
+            <div class="character">
+                <strong>Thorn</strong>
+                <p>Idade: 34 anos</p>
+                <p>Nacionalidade: Russo</p>
+                <p>Mãe: Desconhecido</p>
+                <p>Pai: Desconhecido</p>
+                <p>Irmãos: Nikolai Petrov, Yelena Petrov</p>
+                <p>Estado civil: Casado</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Manipulação Espacial </p>
+                <p>Distorção da Realidade</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Lorde Lux </p>
+                <p>Inventor</p>
+                <p>Boxeador</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Thorn é um bastardo, portanto, fruto de relacionamento não conjugal - o que é visto como algo inadmissível na Rússia, sua terra natal. Pelas altas camadas da sociedade, era visto com desdém e como escória de sua raça, além de ser privado - ao longo de sua juventude - a direitos e cargos que os demais jovens possuíam, apenas por não serem bastardos. 
+            O homem teve uma infância bastante conturbada, visto que seus pais o abandonaram quando ainda era apenas um garotinho. Sua mãe, fora exilada e morta por traição contra o Estado russo, ao passo que seu pai o abandonou e constituiu uma nova família com outra mulher, que havia mais 2 crianças. Diante disso, Berenilde (tia de Thorn por parte de pai) se responsabilizou por cuidar e educar o pequeno Thorn, tratando-o como se fosse seu próprio filho: sempre presente, sempre carinhosa e suprindo todas as necessidades do menino - visto que é uma mulher de posses, assim como a família Volkov em um geral. 
+            Após anos suportando a humilhação de ser um bastardo, Thorn ficou farto com os insultos e desdém que recebia constantemente da alta corte - mesmo que sua tia tivesse influência política, por ser uma das esposas de um dos ministros russos -, e decidiu por um fim a isso. Com 30 anos, fugiu da Rússia com sua tia e se instalou em Paladis, um reino não muito distante dali, abrindo mão de todas as riquezas que sua família possuía em território russo. Desesperado em sustentar ele e a tia, se apresentou para o emprego de secretário do rei e da rainha - em troca do serviço, pediu a eles que os deixassem se abrigar no castelo. A rainha teve compaixão pelo homem e o contratou como seu secretário, que se mantém firme e leal a coroa desde então. 
+            Boatos dizem, que é o homem em que a rainha mais confia, após o seu marido, é claro.
+        </p>
+    </div>
+    <br>
+
+    <div class="content">
+        <!-- Slider 6 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="pietra1.jpg">
+                <img src="pietra2.jpg">
+                <img src="pietra3.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(5)">&#10094;</button>
+            <button class="next" onclick="nextSlide(5)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Pietra d'la Fountaine Mephisto</h2>
+            <div class="character">
+                <strong>Pietra</strong>
+                <p>Idade: 1 ano</p>
+                <p>Nacionalidade: Desconhecida</p>
+                <p>Mãe: Cassandra d'la Fountaine Lancaster Volkov</p>
+                <p>Pai: Thorn Leocadio Mephisto Volkov d'la Fountaine</p>
+                <p>Irmãos: Não possui</p>
+                <p>Estado civil: Solteira</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Talha de teletransporte</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Não possui</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Pietra foi encontrada abandonada e sozinha por Cassandra, que, ao vê-la tão indefesa, decidiu acolhê-la e criá-la como sua filha, especialmente por não poder ter filhos. Determinada a garantir um futuro seguro para a menina, Cassandra dedicou-se a ser a melhor mãe que podia. Quando Thorn entrou em suas vidas, inicialmente mantendo sua postura reservada, acabou desenvolvendo um afeto genuíno por Pietra, assumindo gradualmente um papel paterno.
+        </p>
+    </div>
+    <br>
+
+    <div class="content">
+        <!-- Slider 7 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="trystan1.jpg">
+                <img src="trystan2.jpg">
+                <img src="trystan3.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(6)">&#10094;</button>
+            <button class="next" onclick="nextSlide(6)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Trystan Maverine Lancaster</h2>
+            <div class="character">
+                <strong>Trystan</strong>
+                <p>Idade: 33 anos</p>
+                <p>Nacionalidade: Egípcio</p>
+                <p>Mãe: Evangelina Maverine</p>
+                <p>Pai: Desconhecido</p>
+                <p>Irmãos: Cassandra d'la Fountaine Lancaster Volkov, Alyssa Maverine Lancaster</p>
+                <p>Estado civil: Solteiro</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Não possui poderes</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Médico</p>
+                <p>Estudante</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Trystan nasceu em uma família relativamente pobre e desestruturada. Seu pai, assim que soube da gravidez de sua mãe, a abandonou sem quaisquer tipo de amparo, deixando ela e seu filho recém nascido a própria sorte. Ainda assim, a mãe de Trystan batalhou para lhe dar as melhores condições possíveis. 
+            As coisas começaram a mudar para a pequena família Maverine quando a mãe de Trystan conheceu Mediuna - a sereia rainha, que havia sido violentada pelo pai de Trystan e estava grávida na época. Ambas as mães criaram um respeito e empatia por suas situações, além de um repúdio tremendo pelo homem que as fez sofrer. 
+            Após alguns meses, Trystan - que na época tinha 6 aninhos - conheceu sua nova irmãzinha, Cassandra. Os dois sempre tiveram um vínculo saudável, apesar de serem de raças diferentes. Eram grandes amigos e eram inseparáveis.
+            Quando Trysntan se formou na escola, sua mãe simplesmente desaparecera de sua vida, sem deixar rastros e sem dizer adeus ao jovem Maverine que estava começando a trilhar sua vida. Abalado e sem rumo, ele decidiu se tornar um mercenário e deixar para trás a vida de dignidade que tinha. 
+            Em algum momento, Cassandra e Trystan se separaram, por uma briga que tiveram - do qual ele não se recorda do motivo - e ficaram longe um do outro por exatamente 8 anos. Trystan seguiu sua vida como assassino, enquanto Cassandra desaparecera de sua vida, assim como sua mãe. Até que um dia, ele escutou boatos de que havia uma detetive solucionando muitos casos na cidade em que morava e foi ai que eles se encontraram novamente.
+        </p>
+    </div>
+    <br>
+
+    <div class="content">
+        <!-- Slider 8 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="kartucho1.jpg">
+                <img src="kartucho2.jpg">
+                <img src="kartucho3.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(7)">&#10094;</button>
+            <button class="next" onclick="nextSlide(7)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Haku de La Croix Ravnos</h2>
+            <div class="character">
+                <strong>Haku</strong>
+                <p>Idade: 1298 anos</p>
+                <p>Nacionalidade: Francês</p>
+                <p>Mãe: Arleth de La Croix</p>
+                <p>Pai: Morvain Vorath Ravnos</p>
+                <p>Irmãos: Eleonor de La Croix Vorath, Sylus de La Croix Ravnos  e Elizabeth de La Croix Vorath
+                <p>Estado civil: Casado</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Manipulação Sombria</p>
+                <p>Poder Psíquico</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p> Comandante do clã 'de La Croix'</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Haku, filho de Arleth, a Messias, é um estrategista e mediador influente no mundo vampírico, conhecido por sua inteligência e senso de dever impecável. Desde jovem, tornou-se o braço direito de sua mãe, ocupando uma posição de destaque entre as facções. Embora sério e imponente, esconde um coração marcado pela solidão e conflitos internos, carregando o peso de proteger sua família e o legado de sua mãe. Reprime suas emoções, acreditando que demonstrá-las seria uma fraqueza, mas mantém um vínculo profundo e inquebrável com seus irmãos.
+        </p>
+    </div>
+    <br>
+
+    <div class="content">
+        <!-- Slider 9 -->
+        <div class="slider-container">
+            <div class="slider">
+                <img src="arle2.jpg">
+                <img src="arle1.png">
+                <img src="arle3.jpg">
+            </div>
+            <button class="prev" onclick="prevSlide(8)">&#10094;</button>
+            <button class="next" onclick="nextSlide(8)">&#10095;</button>
+        </div>
+
+        <div class="character-list">
+            <h2>Arlecchino Fontenelle Ravencour</h2>
+            <div class="character">
+                <strong>Arlechinno</strong>
+                <p>Idade: 785 anos</p>
+                <p>Nacionalidade: Francesa / Espanhola</p>
+                <p>Mãe: Brigitte Marigny Fontenelle</p>
+                <p>Pai: Magnus Châteaubriand Ravencour Valmont</p>
+                <p>Irmão: Noérian Châteaubriand Fontenelle</p>
+                <p>Estado civil: Casada</p>
+            </div>
+            <div class="character">
+                <strong>Habilidades</strong>
+                <p>Manipulação Sombria e Mental</p>
+                <p>Pirocinese</p>
+            </div>
+            <div class="character">
+                <strong>Ocupação</strong>
+                <p>Senhora da casa 'de La Croix'</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-content">
+        <p>
+            Arlecchino, conhecida como Valete, administra a Casa da Lareira com graça e cordialidade, mas esconde uma natureza enigmática e possivelmente enlouquecida. Apesar de ser rigorosa, impôs regras mais brandas para seus subordinados, embora rumores sugiram que aqueles que descobrem sua verdadeira essência desaparecem sem deixar vestígios. Aos 335 anos (ou 35, dependendo da interpretação), ela utiliza um contrato de vida para canalizar seu poder, sofrendo danos sem cura imediata até que o contrato se encerre. Armada com uma enorme foice e possuindo asas, Arlecchino mantém sua verdadeira identidade envolta em mistério.
+        </p>
+    </div>
+    <br>
+
+    <script>
+        // Função para gerenciar o slider individualmente
+        function createSlider(index) {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slider-container')[index].querySelector('.slider').children;
+            
+            function showSlide() {
+                if (slideIndex >= slides.length) slideIndex = 0;
+                if (slideIndex < 0) slideIndex = slides.length - 1;
+                const slider = document.querySelectorAll('.slider-container')[index].querySelector('.slider');
+                slider.style.transform = `translateX(-${slideIndex * 308}px)`;
+            }
+
+            function nextSlide() {
+                slideIndex++;
+                showSlide();
+            }
+
+            function prevSlide() {
+                slideIndex--;
+                showSlide();
+            }
+
+            return { nextSlide, prevSlide, showSlide };
+        }
+
+        // Inicializa todos os sliders
+        const sliders = [];
+        document.querySelectorAll('.slider-container').forEach((container, index) => {
+            sliders.push(createSlider(index));
+            container.querySelector('.next').onclick = () => sliders[index].nextSlide();
+            container.querySelector('.prev').onclick = () => sliders[index].prevSlide();
+        });
+    </script>
+
+</body>
+</html>
+
